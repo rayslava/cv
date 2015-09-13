@@ -1,12 +1,12 @@
-FILENAME=cv
+FILENAME=barinov-cv
 PDFMAKER=pdflatex
 PDFOPTS=
 HTMLMAKER=latex2html
 HTML_PROLOGUE=moderncv.perl
 CSS=moderncv.css
-HTMLOPTS=-split 0 -nonavigation -info 0 -init_file $(HTML_PROLOGUE) -noindex_in_navigation -style cv.css -title "Slava Barinov"
+HTMLOPTS=-split 0 -nonavigation -info 0 -init_file $(HTML_PROLOGUE) -noindex_in_navigation -style ${FILENAME}.css -title "Slava Barinov"
 
-all: html pdf deploy
+all: html pdf
 
 $(FILENAME).pdf: $(FILENAME).tex
 	$(PDFMAKER) $(PDFOPTS) $(FILENAME).tex
