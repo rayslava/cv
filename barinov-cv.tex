@@ -1,20 +1,18 @@
 \documentclass[11pt,a4paper]{moderncv}
-
 \moderncvtheme[grey]{classic}
 \usepackage[utf8]{inputenc}
 \usepackage[scale=0.9]{geometry}
+\definecolor{linkcol}{rgb}{0,0.2,0.6}
+\usepackage[unicode,colorlinks,breaklinks,urlcolor=linkcol,linkcolor=linkcol]{hyperref}
 
-\usepackage[unicode]{hyperref}
-\definecolor{linkcolour}{rgb}{0,0.2,0.6}
-\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour, linkcolor=linkcolour}
 
 \firstname{Vyacheslav}
 \familyname{Barinov}
 \address{Moscow, Russia}{}
 % \mobile{+7 ...}
 \email{rayslava@gmail.com}
-\homepage{http://rayslava.com}
-\photo[64pt][0.4pt]{photo.jpg}
+\homepage{rayslava.com}
+\photo[92pt][0.4pt]{photo.jpg}
 
 \makeatletter
 \renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
@@ -98,12 +96,10 @@ Fieldwork with hardware and support during full-scale tests.\newline{}}
 \cvitem{VCS}{git, svn}
 
 \section{Server administration skills}
-\cvitem {Jenkins}{Deployment and support on Linux}
-
 \cvitem {OBS}{Deep knowledge of service internals, have experience in setup, configuration and bootstrapping from
   scratch for rpm-based Tizen OS}
 
-\cvitem {General}{Setting up and maintaining \texttt{LAMP} nodes -- \url{http://rayslava.com} for example.}
+\cvitem {General}{Setting up and maintaining all servers needed for work -- CI, source hosting, web-interfaces just need enough time.}
 
 \section{Education}
   \cventry
@@ -149,7 +145,7 @@ Fieldwork with hardware and support during full-scale tests.\newline{}}
 
 \end{document}
 
-%%% Local Variables: 
+%%% Local Variables:
 %%% mode: latex
 %%% TeX-master: t
-%%% End: 
+%%% End:

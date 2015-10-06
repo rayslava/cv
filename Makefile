@@ -14,7 +14,12 @@ $(FILENAME).pdf: $(FILENAME).tex
 	$(PDFMAKER) $(PDFOPTS) $(FILENAME).tex
 	$(PDFMAKER) $(PDFOPTS) $(FILENAME).tex
 
-$(FILENAME)/$(FILENAME).html: $(FILENAME).pdf $(HTML_PROLOGUE) $(PHOTO)
+latex2htmlstyle:
+	git clone https://github.com/rayslava/moderncv2html.git
+	ln -sf moderncv2html/moderncv.perl
+	ln -sf moderncv2html/moderncv.css
+
+$(FILENAME)/$(FILENAME).html: $(FILENAME).pdf latex2htmlstyle $(HTML_PROLOGUE) $(PHOTO)
 	$(HTMLMAKER) $(HTMLOPTS) $(FILENAME).tex
 	$(HTMLMAKER) $(HTMLOPTS) $(FILENAME).tex
 	$(HTMLMAKER) $(HTMLOPTS) $(FILENAME).tex
@@ -22,11 +27,20 @@ $(FILENAME)/$(FILENAME).html: $(FILENAME).pdf $(HTML_PROLOGUE) $(PHOTO)
 	cp $(FILENAME).pdf $(FILENAME)/$(FILENAME).pdf
 	rm $(FILENAME)/index.html $(FILENAME)/labels.pl $(FILENAME)/WARNINGS
 
+$(CSS): latex2htmlstyle
+
 html: $(FILENAME)/$(FILENAME).html
 pdf: $(FILENAME).pdf
 
 css: $(CSS) $(FILENAME)/$(FILENAME).html
 	cp $(CSS) $(FILENAME)/$(FILENAME).css
 
+deploy: $(FILENAME)/$(FILENAME).html
+	cd $(FILENAME) && git init && \
+		git config user.name "Travis CI" && \
+		git config user.email "rayslava@gmail.com" && \
+		git add . && git commit -m "Deploy to GitHub Pages"
+		git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:gh-pages > /dev/null 2>&1
+
 clean:
-	rm -rf *.log *.aux *.pdf *.dvi *.out $(FILENAME)
+	rm -rf *.log *.aux *.pdf *.dvi *.out $(FILENAME) moderncv*

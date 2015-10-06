@@ -1,0 +1,16 @@
+addons:
+  apt:
+    sources:
+    - ppa:texlive-backports/ppa
+    packages:
+    - latex2html
+    - make
+    - git
+    - lmodern
+    - latex-xcolor
+sudo: true
+script: make deploy
+env:
+  global:
+  - GH_REF: github.com/rayslava/cv.git
+  - secure: "mRyQKieh/WCxeSmANDeXxzEt+ARvk+m+ypg5Xevi8ykZXMQJsUskFE4vde7+OrfB/4E4ByE8PTqaAdudw3AGUOfetwqXLBs3yLp4J+nw4m3uyUmu8ugbgbuvKVl5+puRRpDX6CFCeq9qAZwuYoAJ/pCTyXhWx4MknqtkSarTIdc="
