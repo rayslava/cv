@@ -1,16 +1,10 @@
-addons:
-  apt:
-    sources:
-    - ppa:texlive-backports/ppa
-    packages:
-    - latex2html
-    - make
-    - git
-    - lmodern
-    - latex-xcolor
 sudo: true
+before_install:
+    - sudo add-apt-repository --yes ppa:texlive-backports/ppa
+    - sudo apt-get -qq update
+    - sudo apt-get -qq --yes --force-yes install latex2html make git lmodern latex-xcolor
 script: make deploy
 env:
   global:
   - GH_REF: github.com/rayslava/cv.git
-  - secure: "mRyQKieh/WCxeSmANDeXxzEt+ARvk+m+ypg5Xevi8ykZXMQJsUskFE4vde7+OrfB/4E4ByE8PTqaAdudw3AGUOfetwqXLBs3yLp4J+nw4m3uyUmu8ugbgbuvKVl5+puRRpDX6CFCeq9qAZwuYoAJ/pCTyXhWx4MknqtkSarTIdc="
+  - secure: "DGF32CEXAfe2Zw0jg0wgmTvVQKg0bBTFxgDkLzFBmx7EMq1QNVuSD0dp/qMXdiMjcKbaMOxoWHB+SBIjDBR0ga4FGrrRnZmHhLynT2zFj/7YI+uzV4rS6UUOmo+aN2O5srBW95jzRa76ZLYWxU2nBVjrPY+WSwJTKlHKPse7ZnMt5YobxPysU615k20UbdMQww5zcJhZvxuJfmcxNyGK1mN+EXl/cXJUOP1a2EWXDRo6UWXR6Va1XCXwL/KCSrGKemym9aSYI0m3rlQ6dd4nscRDx1Etm3qkwSBxhSmjHpacuhTiypsa2BWq8YQqp8fXfbmHeW6kjkWp3xcd2BsO9MO/M0b/Rf+6zYSVcYISJFU8EtuJNFjX2dsZv3jJMhRgzmgIgB48Z8J/tc1thHdMicHeFjVQCAVMmnzhISRnrmiyyZMYPJIM6cbjMLe7ShAAUwOsmH1oCQPPvToUA8M4i53xj4zej7TbexIgm/0VIWt/8yRPDP7ibS6g/vvAMgeSIHZyEybSnxWtKzYKTWfRbUXml8RwaKnXtVdfBPo42Vcd4KdzomtYGbU/fhA/eyfVM0xMjbIQkYx+v+e9xZuPPffk9Rz7tVUkJbEAVY7xpQ++OKhFXO2Rm89JvvmDmmrF521LbYc+260ZGW2GIeMegD16rbmbIKKowysl+/KTD48="

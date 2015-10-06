@@ -6,6 +6,7 @@ HTML_PROLOGUE=moderncv.perl
 CSS=moderncv.css
 PHOTO=photo.jpg
 HTMLOPTS=-split 0 -nonavigation -info 0 -init_file $(HTML_PROLOGUE) -noindex_in_navigation -style ${FILENAME}.css -title "Slava Barinov"
+REPO_PATH:=$(shell echo "https://rayslava:${GIT_TOKEN}@github.com/rayslava/cv.git")
 
 all: clean css html pdf
 
@@ -35,12 +36,12 @@ pdf: $(FILENAME).pdf
 css: $(CSS) $(FILENAME)/$(FILENAME).html
 	cp $(CSS) $(FILENAME)/$(FILENAME).css
 
-deploy: $(FILENAME)/$(FILENAME).html
-	cd $(FILENAME) && git init && \
+deploy: $(FILENAME)/$(FILENAME).html css
+	@cd $(FILENAME) && git init && \
 		git config user.name "Travis CI" && \
 		git config user.email "rayslava@gmail.com" && \
-		git add . && git commit -m "Deploy to GitHub Pages"
-		git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:gh-pages > /dev/null 2>&1
+		git add . && git commit -m "Deploy to GitHub Pages" && \
+		git push --force --quiet "${REPO_PATH}" master:gh-pages > /dev/null 2>&1
 
 clean:
 	rm -rf *.log *.aux *.pdf *.dvi *.out $(FILENAME) moderncv*
