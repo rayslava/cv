@@ -1,6 +1,5 @@
 sudo: true
 before_install:
-    - sudo add-apt-repository --yes ppa:texlive-backports/ppa
     - sudo apt-get -qq update
     - sudo apt-get -qq --yes --force-yes install latex2html make git lmodern latex-xcolor
 script: make deploy
