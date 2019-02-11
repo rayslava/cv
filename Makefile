@@ -41,7 +41,7 @@ deploy: $(FILENAME)/$(FILENAME).html css
 		git config user.name "Travis CI" && \
 		git config user.email "rayslava@gmail.com" && \
 		git add . && git commit -m "Deploy to GitHub Pages" && \
-		git push --force --quiet "${REPO_PATH}" master:gh-pages > /dev/null 2>&1
+		git push --force --quiet "$(REPO_PATH)" master:gh-pages > /dev/null 2>&1
 
 clean:
 	rm -rf *.log *.aux *.pdf *.dvi *.out $(FILENAME) moderncv*
