@@ -1,9 +1,0 @@
-sudo: true
-before_install:
-    - sudo apt-get -qq update
-    - sudo apt-get -qq --yes --force-yes install latex2html make git lmodern latex-xcolor
-script: make deploy
-env:
-  global:
-  - GH_REF: github.com/rayslava/cv.git
-  - secure: "UCivNTvJ7BwhbamVtRdmwdPh1BvuGuAbC195AibnkzX1CPGvQ8tCoL48E6ZNn3u67bEHx8bkuH8XQBtZyZdfSvefzsj+UQYRXxESvvSUfRVrTHst4DEj19ajeK3halqm9rWg8o8Qz0YuCCcsgOd4iXp60FnwH5kfHkMjR8H8/o+cm6LSBakSIXL/55YV6MXOXFbabvG817B87GqmAfOhOxNvIQ9NzR/fIyZGLEHjCw+dwP+dV2EqpArtE/dYAaO0exrDEK4z5FUvbWR/8c55m8qYXljDjuaucR+tLhtCkMHQ5f9vvtidKIzBXxyZ9DZ2MtI67PT+VZz3mC1RBL7TxnWNNANh+g3yqwNzW8eNlvnEdMfqqX9/k7jC7J38G7E8pCgk8quED0hZyWCdiSOdukHOH4ZSosQjbsoAYX0oGuuZra+8f3nxGgAkfkei1R8n6mvHEJAR90IbWDxcSONZjev88vJWnxxy0Gj7f0UyQnecKnWy0+EfWd936CYnOyZlCsL8c4+ZCoz29h/giRgCHwX11BKC8bf8r7y8LUg8X+jib/7Zks7C2Cj0YIN5QWAQb62iXluO34Fsaa5wrimL2SjZxK3AR/Z7GFLzhKJxGq00gpGh34K0fG1cQgDtZ16Fehsul1M3T/RKSDyzem0XtdLT/yHluwL//XXQc/9oL9Q="
