@@ -13,7 +13,7 @@ jobs:
           submodules: recursive
 
       - name: Install dependencies
-        run: "sudo apt-get update -y && sudo apt-get -qq --yes --force-yes install latex2html make git lmodern latex-xcolor"
+        run: "sudo apt-get update -y && sudo apt-get -qq --yes --force-yes install latex2html make git lmodern texlive-latex-recommended"
 
       - name: Build pdf
         run: "make deploy"
