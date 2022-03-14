@@ -8,12 +8,12 @@ jobs:
 
     steps:
       - name: Checkout repository and submodules
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           submodules: recursive
 
       - name: Install dependencies
-        run: "sudo apt-get -qq --yes --force-yes install latex2html make git lmodern latex-xcolor"
+        run: "sudo apt-get update -y && sudo apt-get -qq --yes --force-yes install latex2html make git lmodern latex-xcolor"
 
       - name: Build pdf
         run: "make deploy"
