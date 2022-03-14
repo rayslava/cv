@@ -16,7 +16,13 @@ jobs:
         run: "sudo apt-get update -y && sudo apt-get -qq --yes --force-yes install latex2html make git lmodern texlive-latex-recommended"
 
       - name: Build pdf
-        run: "make deploy"
+        run: "make pdf html css"
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./barinov-cv
 
       - name: Archive build
         uses: actions/upload-artifact@v2
