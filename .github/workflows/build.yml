@@ -1,0 +1,25 @@
+on: push
+
+name: CI Build
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository and submodules
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+
+      - name: Install dependencies
+        run: "sudo apt-get -qq --yes --force-yes install latex2html make git lmodern latex-xcolor"
+
+      - name: Build pdf
+        run: "make deploy"
+
+      - name: Archive build
+        uses: actions/upload-artifact@v2
+        with:
+          name: barinov-cv.pdf
+          path: barinov-cv.pdf
