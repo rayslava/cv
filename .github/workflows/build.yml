@@ -13,7 +13,7 @@ jobs:
           submodules: recursive
 
       - name: Install dependencies
-        run: "sudo apt-get update -y && sudo apt-get -qq --yes --force-yes install latex2html make git lmodern texlive-latex-recommended"
+        run: "sudo apt-get update -y && sudo apt-get -qq --yes --force-yes install latex2html make git lmodern texlive-latex-recommended texlive-fonts-extra"
 
       - name: Build pdf
         run: "make pdf html css"
